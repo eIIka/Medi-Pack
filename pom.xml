@@ -35,6 +35,7 @@
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <org.junit.jupiter.version>5.11.3</org.junit.jupiter.version>
         <jpa.version>3.2.0</jpa.version>
+        <mysql.version>9.3.0</mysql.version>
     </properties>
 
     <dependencyManagement>
@@ -42,6 +43,7 @@
             <dependency>
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql.version}</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
