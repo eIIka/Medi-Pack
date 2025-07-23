@@ -5,7 +5,7 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "used_packages")
+@Table(name = "used_package")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,15 +17,17 @@ public class UsedPackage {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "package_id", nullable = false)
+    @JoinColumn(name = "medical_package_id")
     private MedicalPackage medicalPackage;
 
+    @Column(name = "quantity_used")
     private Long quantityUsed;
 
+    @Column(name = "used_date")
     private LocalDate usedDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 }
 

@@ -6,7 +6,11 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "medical_package")
+@Table(
+        name = "medical_package",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"code", "context", "user_id"})
+)
+@EqualsAndHashCode(of = {"code", "context", "user"})
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,8 +26,7 @@ public class MedicalPackage {
     @OneToMany(mappedBy = "medicalPackage", cascade = CascadeType.ALL)
     private List<PackageMaterial> packageMaterials;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 }

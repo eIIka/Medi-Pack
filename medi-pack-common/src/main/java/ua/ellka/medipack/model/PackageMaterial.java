@@ -18,17 +18,17 @@ public class PackageMaterial {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "package_id", nullable = false)
+    @JoinColumn(name = "medical_package_id")
     private MedicalPackage medicalPackage;
 
     @ManyToOne
-    @JoinColumn(name = "material_id", nullable = false)
+    @JoinColumn(name = "medical_material_id")
     private MedicalMaterial medicalMaterial;
 
     private Double quantity;
     private String specification;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 }
