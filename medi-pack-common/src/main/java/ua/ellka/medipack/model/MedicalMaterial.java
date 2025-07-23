@@ -3,12 +3,17 @@ package ua.ellka.medipack.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@Table(name = "medical_material")
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(
+        name = "medical_material",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"name", "measurement_unit", "user_id"})
+)
 @EqualsAndHashCode(of = {"name", "measurementUnit", "user"})
 public class MedicalMaterial {
     @Id
@@ -16,9 +21,11 @@ public class MedicalMaterial {
     private Long id;
 
     private String name;
+
+    @Column(name = "measurement_unit")
     private String measurementUnit;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 }
