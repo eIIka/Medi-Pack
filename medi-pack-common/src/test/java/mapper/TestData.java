@@ -24,7 +24,7 @@ public class TestData {
     public static final String MEASUREMENT_UNIT = "ml";
 
     public static final MedicalMaterial MEDICAL_MATERIAL = new MedicalMaterial(
-            10L, MATERIAL_NAME, MEASUREMENT_UNIT, USER);
+            10L, MATERIAL_NAME, MEASUREMENT_UNIT, List.of(),USER);
     public static final MedicalMaterialDTO MEDICAL_MATERIAL_DTO = new MedicalMaterialDTO(
             10L, MATERIAL_NAME, MEASUREMENT_UNIT);
 
