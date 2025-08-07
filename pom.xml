@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>medi-pack-common</module>
+        <module>medi-pack-repo</module>
     </modules>
 
     <properties>
